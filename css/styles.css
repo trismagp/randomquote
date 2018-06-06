@@ -3,6 +3,7 @@ body {
   background-color: #36b55c;
   color: white;
   font-family: 'Playfair Display', serif;
+  transition: background-color 1.5s;
 }
 #quote-box {
   position: absolute;
@@ -18,7 +19,7 @@ body {
   line-height: 1.1;
   position: relative;
   margin: 0;
-  } 
+}
 .quote:before, .quote:after {
   font-size: 6rem;
   line-height: 2.5rem;
@@ -36,7 +37,7 @@ body {
   position: absolute;
 }
 .source {
-  font-size: 1.25rem;;
+  font-size: 1.25rem;
   letter-spacing: 0.05em;
   line-height: 1.1;
   text-align: right;
@@ -55,6 +56,27 @@ body {
 .year:before {
   content: ", ";
   font-style: normal;
+}
+
+ul.tag {
+  padding: 0;
+  text-align: right;
+    margin-right: 8em;
+}
+
+.tag li {
+  font-style: italic;
+  margin-right: 8em;
+  border-radius: 6px;
+  display: inline-block;
+  background: #ff9904;
+  color: white;
+  padding: 10px 10px;
+  margin: 2px;
+}
+
+.tag li:nth-child(odd) {
+  background: #0399ff;
 }
 
 #loadQuote {
