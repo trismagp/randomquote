@@ -1,4 +1,4 @@
-var previousQuoteIndex = 0;
+var quoteIndex = 0;
 var colorIndex = 0;
 var colors = ['#15682E','#008828','#36B55C','#680B0A','#B53736'];
 var quotes = [
@@ -40,29 +40,33 @@ var quotes = [
 ];
 
 
-// This function calculates a random quote position from 0 to nb quotes
-// then returns the related quote.
+// This function calculates a random position from 0 to nb array elements
+// then returns the related element.
 //
-// In order to display a new quote every time the button is clicked
-// and if there is more than one quote in the quotes array
-// this function loops until the new random position is different from
-// the previous quote position.
-function getRandomQuote(){
+// In order to get a new element for every update
+// (automatic update with timer or button pressed)
+// and if there is more than one element in the array
+// this function loops until the new random index is different from
+// the actual index.
+function getRandomElement(array,index){
   var randomIndex = 0;
-  if(quotes.length > 1){
+  if(array.length > 1){
     do{
-        randomIndex = Math.floor(Math.random() * quotes.length);
-    }while(previousQuoteIndex === randomIndex);
-    previousQuoteIndex = randomIndex;
+        randomIndex = Math.floor(Math.random() * array.length);
+    }while(index === randomIndex);
+    index = randomIndex;
   }
-  return quotes[randomIndex];
+  return array[index];
 }
 
-// increment the color index and return the related color
-function getColor(){
-  colorIndex = ( colorIndex + 1 ) % colors.length;
-  return colors[colorIndex];
+function getRandomQuote(){
+  return getRandomElement(quotes,quoteIndex);
 }
+
+function getColor(){
+  return getRandomElement(colors,colorIndex);
+}
+
 
 
 // fade out
